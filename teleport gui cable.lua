@@ -1,4 +1,4 @@
--- Création de l'interface utilisateur
+
 
 local player = game.Players.LocalPlayer
 local teleportGui = Instance.new("ScreenGui")
@@ -7,7 +7,7 @@ local titleLabel = Instance.new("TextLabel")
 local closeButton = Instance.new("TextButton")
 local playerListFrame = Instance.new("ScrollingFrame")
 
--- Paramètres de l'interface utilisateur
+
 
 teleportGui.Name = "TeleportGui"
 teleportGui.Parent = player.PlayerGui
@@ -50,7 +50,6 @@ playerListFrame.Position = UDim2.new(0, 20, 0, 40)
 playerListFrame.Size = UDim2.new(0, 260, 0, 140)
 playerListFrame.ScrollBarThickness = 6
 
--- Fonction de création des boutons de joueur
 
 local function createPlayerButton(playerName)
     local playerButton = Instance.new("TextButton")
@@ -65,7 +64,7 @@ local function createPlayerButton(playerName)
     playerButton.TextColor3 = Color3.new(0, 0, 0)
     playerButton.TextSize = 16
 
-    -- Gestionnaire d'événement lors du clic sur le bouton joueur
+  
     playerButton.MouseButton1Click:Connect(function()
         local targetPlayer = game.Players:FindFirstChild(playerName)
         if targetPlayer then
@@ -76,7 +75,7 @@ local function createPlayerButton(playerName)
     end)
 end
 
--- Création des boutons de joueur pour tous les joueurs présents dans le jeu
+
 
 for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
     if otherPlayer ~= player then
@@ -84,13 +83,13 @@ for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
     end
 end
 
--- Gestionnaire d'événement lors du clic sur le bouton de fermeture
+
 
 closeButton.MouseButton1Click:Connect(function()
     teleportGui:Destroy()
 end)
 
--- Gestion du déplacement du GUI
+
 
 local dragging = false
 local dragStartPos = nil
